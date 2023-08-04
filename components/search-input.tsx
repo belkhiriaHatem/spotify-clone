@@ -9,9 +9,7 @@ import qs from "query-string";
 
 import Input from "./input";
 
-type Props = {};
-
-export default function SearchInput({}: Props) {
+export default function SearchInput() {
   const router = useRouter();
   const [value, setvalue] = useState<string>("");
   const deboucedValue = useDebounce<string>(value, 500);

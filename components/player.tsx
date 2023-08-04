@@ -6,9 +6,7 @@ import usePlayer from "@/hooks/usePlayer";
 
 import PlayerContent from "@/components/player-content";
 
-type Props = {};
-
-export default function Player({}: Props) {
+export default function Player() {
   const player = usePlayer();
   const { song } = useGetSongById(player.activeId);
 
