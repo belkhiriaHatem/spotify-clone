@@ -2,12 +2,15 @@
 
 import { Song } from "@/types";
 import SongItem from "@/components/song-item";
+import useOnPlay from "@/hooks/useOnPlay";
 
 type Props = {
   songs: Song[];
 };
 
 export default function PageContent({ songs }: Props) {
+  const onPlay = useOnPlay(songs);
+
   if (songs.length === 0) {
     return <div className="mt-4 text-neutral-400">No songs available!</div>;
   }
@@ -26,7 +29,11 @@ export default function PageContent({ songs }: Props) {
   "
     >
       {songs.map((item) => (
-        <SongItem key={item.id} onClick={() => {}} data={item} />
+        <SongItem
+          key={item.id}
+          onClick={(id: string) => onPlay(id)}
+          data={item}
+        />
       ))}
     </div>
   );
